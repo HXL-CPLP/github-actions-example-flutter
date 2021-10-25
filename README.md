@@ -61,9 +61,6 @@ programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
 # (já que pessoa poderia usar até GitHub web).
 # TODO: https://github.com/EticaAI/inclusao-digital
 # [por-Latn]_
-
-flutter create --template app --project-name programma_exemplum_flutter --org ai.etica.hxl .
-
 ```
 ### macOS
 
@@ -200,9 +197,6 @@ flutter config --enable-linux-desktop
 
 ```
 
-
-
-
 #### Programma 
 > \_[eng-Latn] Some description on how the example application was constructed [eng-Latn]\_
 >
@@ -214,7 +208,53 @@ flutter config --enable-linux-desktop
 #  - https://flutter.dev/docs/get-started/codelab
 #    - https://www.youtube.com/watch?v=Z6KZ3cTGBWw
 
+#### bootstrap _________________________________________________________________
+flutter create --template app --project-name programma_exemplum_flutter --org ai.etica.hxl .
+
+### run, web ...................................................................
+flutter run -d chrome
+
+### run, desktop (linux) .......................................................
+
+# Run, debug mode
+flutter run -d linux
+
+# Run, profile mode
+flutter run -d linux --profile
 # ....
+
+#### Builds ____________________________________________________________________
+
+### Android APK ................................................................
+flutter build apk
+#     (...)
+#     ✓  Built build/app/outputs/flutter-apk/app-release.apk (15.4MB).
+
+### Android appbundle ................................................................
+flutter build appbundle
+#     (...)
+#     ✓ Built build/app/outputs/bundle/release/app-release.aab (15.4MB)
+
+### Linux app ..................................................................
+flutter build linux
+#     (...)
+#     ./build/linux/x64/release/bundle/programma_exemplum_flutter
+
+### Linux web ..................................................................
+flutter build web
+#
+#     build/web (???)
+
+### ios(Mac OS X host only) ....................................................
+flutter build ios
+
+### ipa (Mac OS X host only) ...................................................
+flutter build ipa
+
+### Windows ....................................................................
+# @see https://flutter.dev/desktop#windows-uwp
+# TODO: test windows build
+
 ```
 
 ```bash
