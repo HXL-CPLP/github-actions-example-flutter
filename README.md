@@ -18,9 +18,10 @@ programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
 - [Links](#links)
 - [Documentōrum](#documentōrum)
     - [Android (Termux)](#android-termux)
+    - [macOS](#macos)
     - [Linux-like](#linux-like)
-        - [Online](#online)
-        - [Windows-like](#windows-like)
+    - [Online](#online)
+    - [Windows-like](#windows-like)
 - [Licentiam](#licentiam)
 
 <!-- /TOC -->
@@ -62,47 +63,117 @@ programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
 # [por-Latn]_
 
 ```
+### macOS
+
+```bash
+#### VSCode (One example of IDE) _______________________________________________
+# @see https://code.visualstudio.com/download
+
+#### Flutter, install __________________________________________________________
+# @see https://flutter.dev/docs/get-started/install/macos
+
+#### TODO
+# This is a draft. See Linux-like
+
+```
 
 ### Linux-like
+
 ```bash
+# Linux version used: Ubuntu 20.04
+cat /etc/*release | grep VERSION=
+# VERSION="20.04.3 LTS (Focal Fossa)"
 
 #### VSCode install ____________________________________________________________
 # @see https://code.visualstudio.com/download
 # @see https://snapcraft.io/code
 
-#### Dependencies ______________________________________________________________
+#### Flutter, install __________________________________________________________
+# @see https://flutter.dev/docs/get-started/install/macos
+sudo snap install flutter --classic
 
-# Fixes 'snapcraft is not installed, please: sudo snap install snapcraft --classic'
-sudo snap install snapcraft --classic
+## Download SDK and show path
+flutter sdk-path
+# >>>
+#    Running "flutter pub get" in flutter_tools...                       8,1s
+#    Doctor summary (to see all details, run flutter doctor -v):
+#    [✓] Flutter (Channel stable, 2.2.1, on Linux, locale pt_BR.UTF-8)
+#    [✗] Android toolchain - develop for Android devices
+#        ✗ Unable to locate Android SDK.
+#        Install Android Studio from: https://developer.android.com/studio/index.html
+#        On first launch it will assist you in installing the Android SDK components.
+#        (or visit https://flutter.dev/docs/get-started/install/linux#android-setup for detailed instructions).
+#        If the Android SDK has been installed to a custom location, please use
+#        `flutter config --android-sdk` to update to that location.
+#
+#    [✗] Chrome - develop for the web (Cannot find Chrome executable at google-chrome)
+#        ! Cannot find Chrome. Try setting CHROME_EXECUTABLE to a Chrome executable.
+#    [!] Android Studio (not installed)
+#    [!] Connected device
+#        ! No devices available
+#
+#    ! Doctor found issues in 4 categories.
 
-# ??? 'macaroon-authorization-required: The request is missing an Authorization header field containing a valid macaroon'
+#### Android Studio, ___________________________________________________________
+### Install ....................................................................
+# @see https://snapcraft.io/android-studio
+sudo snap install android-studio --classic
 
-#### Example code install: szwacz-electron-boilerplate _________________________
-# _[por-Latn]
-# No momento atual, 2021-10-24, tem-se várias opções. Vamos escolher uma.
-# [por-Latn]_
+### Android Studio setup .......................................................
+android-studio
+# Fluter asks:
+#  'Start Android Studio, and go through the  ‘Android Stu#dio Setup Wizard’.
+#   This installs the latest Android SDK, Android SDK Command-line Tools,
+#   and Android SDK Build-Tools, which are required by Flutter when
+#    developing for Android.
 
-git clone https://github.com/szwacz/electron-boilerplate.git szwacz-electron-boilerplate
-rm -fr szwacz-electron-boilerplate/.git
-cd szwacz-electron-boilerplate
+# Before 'flutter doctor --android-licenses'
+# For Android SDK Command-line Tools, see guide here
+# @see https://stackoverflow.com/questions/49758849/flutter-io-android-license-status-unknown
 
-# Dependencies
-yarn install
+flutter doctor --android-licenses
 
-# Run on a window
-yarn run e2e
+### executable at google-chrome ................................................
+# flutter doctor
+#    [✗] Chrome - develop for the web (Cannot find Chrome executable at google-chrome)
+#        ! Cannot find Chrome. Try setting CHROME_EXECUTABLE to a Chrome executable.
+which chromium
+# /snap/bin/chromium
 
-# Run on a window
-yarn run start
+# If the following works, then you're free to add to the path for next runs
+CHROME_EXECUTABLE=/snap/bin/chromium flutter doctor
 
-### Release
-yarn run release
+# In this case, we add this line to ~/.bashrc to affect NEW terminals
+code ~/.bashrc
+#    export CHROME_EXECUTABLE=/snap/bin/chromium
 
-ls dist/
-# builder-debug.yml   builder-effective-config.yaml   electron-boilerplate_0.0.0_amd64.snap  'Electron Boilerplate-0.0.0.AppImage'   linux-unpacked
+# Now, on this case, worked
+flutter doctor
+#    Doctor summary (to see all details, run flutter doctor -v):
+#    [✓] Flutter (Channel stable, 2.2.1, on Linux, locale pt_BR.UTF-8)
+#    [✓] Android toolchain - develop for Android devices (Android SDK version 31.0.0)
+#    [✓] Chrome - develop for the web
+#    [✓] Android Studio (version 2020.3)
+#    [✓] Connected device (1 available)
+#
+#    • No issues found!
 
+#### emulator-acceleration (if hardware supports) ______________________________
+# @see https://developer.android.com/studio/run/emulator-acceleration
 
+~/Android/Sdk/emulator/emulator -accel-check
+#    accel:
+#    0
+#    KVM (version 12) is installed and usable.
+#    accel
+
+# Okay, alread configured
+
+#### Setup Android emulator (local) ____________________________________________
+# @see https://flutter.dev/docs/get-started/install/linux#set-up-the-android-emulator
 ```
+
+
 
 
 <!--
@@ -124,16 +195,23 @@ git push origin tag v0.3.5
 git push
 -->
 
-#### Online
+### Online
 
 > TODO:
 > - https://vscode.dev/ (?)
 > - https://github.dev/ (?)
 
-#### Windows-like
+### Windows-like
 
 ```bash
-# TODO: windows
+#### VSCode (One example of IDE) _______________________________________________
+# @see https://code.visualstudio.com/download
+
+#### Flutter, install __________________________________________________________
+# @see https://flutter.dev/docs/get-started/install/windows
+
+#### TODO
+# This is a draft. See Linux-like
 ```
 
 ## Licentiam
