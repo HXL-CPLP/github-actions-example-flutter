@@ -1,13 +1,7 @@
 # programma-exemplum-flutter
 programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
 
-```bash
-# https://github.com/marketplace/actions/flutter-action
-# https://github.com/marketplace/actions/dart-and-flutter-package-publisher
-# https://flutter.dev/docs/get-started/install/linux
-# https://flutter.dev/docs/get-started/editor?tab=vscode
-# https://github.com/gskinnerTeam/flutter-folio
-```
+
 
 ---
 
@@ -19,7 +13,9 @@ programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
 - [Documentōrum](#documentōrum)
     - [Android (Termux)](#android-termux)
     - [macOS](#macos)
-    - [Linux-like](#linux-like)
+    - [Linux](#linux)
+        - [Māchinam](#māchinam)
+        - [Programma](#programma)
     - [Online](#online)
     - [Windows-like](#windows-like)
 - [Licentiam](#licentiam)
@@ -44,7 +40,11 @@ programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
   - **Exemplum**
     - https://www.electron.build/#boilerplates
     - https://github.com/samuelmeuli/mini-diary
-
+- **VSCode**
+  - https://flutter.dev/docs/get-started/editor?tab=vscode
+  - **Extensions**:
+    - https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+      - https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code
 
 ## Documentōrum
 > \_[eng-Latn] Logbook [eng-Latn]\_
@@ -62,6 +62,8 @@ programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
 # TODO: https://github.com/EticaAI/inclusao-digital
 # [por-Latn]_
 
+flutter create --template app --project-name programma_exemplum_flutter --org ai.etica.hxl .
+
 ```
 ### macOS
 
@@ -77,7 +79,14 @@ programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
 
 ```
 
-### Linux-like
+### Linux
+
+#### Māchinam
+> \_[eng-Latn] Example of Linux-like enviroment setup (any project) [eng-Latn]\_
+>
+> \_[por-Latn] Exemplo de configuração de ambiente em Linuxes (qualquer projeto) [por-Latn]\_
+
+
 
 ```bash
 # Linux version used: Ubuntu 20.04
@@ -87,6 +96,12 @@ cat /etc/*release | grep VERSION=
 #### VSCode install ____________________________________________________________
 # @see https://code.visualstudio.com/download
 # @see https://snapcraft.io/code
+
+### Fluter for VSCode ..........................................................
+# @see https://flutter.dev/docs/get-started/editor?tab=vscode
+
+# https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+# https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code
 
 #### Flutter, install __________________________________________________________
 # @see https://flutter.dev/docs/get-started/install/macos
@@ -171,10 +186,44 @@ flutter doctor
 
 #### Setup Android emulator (local) ____________________________________________
 # @see https://flutter.dev/docs/get-started/install/linux#set-up-the-android-emulator
+
+#### Flutter for Desktop (linux app) ___________________________________________
+# @see https://flutter.dev/docs/get-started/install/linux#linux-setup
+# @see https://flutter.dev/desktop
+
+sudo apt-get install clang cmake ninja-build pkg-config libgtk-3-dev
+
+flutter config --enable-linux-desktop
+
+#### Flutter for web ___________________________________________________________
+# @see https://flutter.dev/docs/get-started/web
+
 ```
 
 
 
+
+#### Programma 
+> \_[eng-Latn] Some description on how the example application was constructed [eng-Latn]\_
+>
+> \_[por-Latn] Alguma descrição de como o aplicativo de exemplo foi construído [por-Latn]\_
+
+```bash
+# @see https://www.youtube.com/watch?v=70dqIVvoEyw
+# @see 
+#  - https://flutter.dev/docs/get-started/codelab
+#    - https://www.youtube.com/watch?v=Z6KZ3cTGBWw
+
+# ....
+```
+
+```bash
+# https://github.com/marketplace/actions/flutter-action
+# https://github.com/marketplace/actions/dart-and-flutter-package-publisher
+# https://flutter.dev/docs/get-started/install/linux
+# https://flutter.dev/docs/get-started/editor?tab=vscode
+# https://github.com/gskinnerTeam/flutter-folio
+```
 
 <!--
 
