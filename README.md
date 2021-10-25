@@ -28,7 +28,10 @@ programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
 
 - **Automation**
   - **GitHub Actions**
-    - https://docs.github.com/pt/actions
+    - **Documentação geral**
+      - https://docs.github.com/pt/actions
+      - **Actions comuns**
+        - https://github.com/actions/upload-artifact
   - **Flutter Action**
     - https://github.com/marketplace/actions/flutter-action
 - **Programma codicem**
