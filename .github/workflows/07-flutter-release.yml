@@ -1,30 +1,23 @@
-# ARCHIVUM:        .github/workflows/05-flutter-build.yml
+# ARCHIVUM:        .github/workflows/07-flutter-release.yml
 # LICENTIAM:        Dominium publicum
 # SPDX-License-Identifier: Unlicense
 # DOCUMENTORUM:     Links:
 #                     - https://docs.github.com/pt/actions
 #                     - https://github.com/marketplace/actions/flutter-action
+#                     - https://github.com/anton-yurchenko/git-release
 
-name: flutter-build
-
-# Replace 'programma-exemplum-flutter' with your app name
+name: flutter-release
 
 on:
   push:
-    branches:
-      - main
-    # Sequence of patterns matched against refs/tags
-    # tags:
-    #   - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
 
 jobs:
-  flutter-build-unixes:
-    name: Test on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        # os: [ubuntu-latest, windows-latest, macos-latest]
-        os: [ubuntu-latest, macos-latest]
+  flutter-build-on-ubuntu:
+    name: flutter-build-on-ubuntu
+    runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
@@ -41,27 +34,39 @@ jobs:
       - run: flutter test
 
       - run: flutter build web
-        if: startsWith(matrix.os,'ubuntu')
 
       - run: 'echo "TODO: discover where web folder is, then upload it as zip"'
 
       - run: flutter build apk
-        if: startsWith(matrix.os,'ubuntu')
 
       - uses: actions/upload-artifact@v2
-        if: startsWith(matrix.os,'ubuntu')
         with:
           name: programma-exemplum-flutter.apk
           path: build/app/outputs/flutter-apk/app-release.apk
 
       - run: flutter build appbundle
-        if: startsWith(matrix.os,'ubuntu')
 
       - uses: actions/upload-artifact@v2
-        if: startsWith(matrix.os,'ubuntu')
         with:
           name: programma-exemplum-flutter.aab
           path: build/app/outputs/bundle/release/app-release.aab
+
+  flutter-build-on-macos:
+    name: flutter-build-on-maco
+    runs-on: macos-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable' # or: 'beta', 'dev' or 'master'
+      - run: dart --version
+      - run: flutter --version
+      - run: flutter pub get
+      - run: flutter test
 
       - run: flutter build ios --release --no-codesign
         if: startsWith(matrix.os,'macos')
@@ -73,14 +78,9 @@ jobs:
           path: build/ios/iphoneos/Runner.app
           retention-days: 5 # 5 days retention (this is an huge folder)
 
-
-  flutter-build-windows:
-    name: Test on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        # os: [ubuntu-latest, windows-latest, macos-latest]
-        os: [windows-latest]
+  flutter-build-on-windows:
+    name: flutter-build-on-windows
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
@@ -104,6 +104,30 @@ jobs:
 
       - run: flutter build windows
         continue-on-error: true
+
+  fluter-release:
+    name: fluter-release
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - run: "echo 'TODO https://github.com/anton-yurchenko/git-release/blob/main/docs/example.md'"
+
+      # Download all artifacts to the current working directory
+      - uses: actions/download-artifact@v2
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Release
+        uses: docker://antonyurchenko/git-release:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UNRELEASED: "update"
+        with:
+          # programma-exemplum-flutter.app 168mb, too much
+          args: |
+            programma-exemplum-flutter.aab
+            rogramma-exemplum-flutter.apk
 
   # TODO:
   # - avancado https://github.com/anton-yurchenko/git-release
