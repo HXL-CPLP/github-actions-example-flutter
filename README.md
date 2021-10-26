@@ -214,6 +214,10 @@ flutter config --enable-linux-desktop
 #### bootstrap _________________________________________________________________
 flutter create --template app --project-name programma_exemplum_flutter --org ai.etica.hxl .
 
+# flutter create --platforms=windows --template app --project-name programma_exemplum_flutter --org ai.etica.hxl .
+#    The desktop platform: windows is currently not supported on your local environment.
+#    For more details, see: https://flutter.dev/desktop
+
 ### run, web ...................................................................
 flutter run -d chrome
 

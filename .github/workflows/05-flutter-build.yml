@@ -7,6 +7,8 @@
 
 name: flutter-build
 
+# Replace 'programma-exemplum-flutter' with your app name
+
 on:
   push:
     branches:
@@ -38,14 +40,36 @@ jobs:
       - run: flutter pub get
       - run: flutter test
 
+      - run: flutter build web
+        if: startsWith(matrix.os,'ubuntu')
+
       - run: flutter build apk
         if: startsWith(matrix.os,'ubuntu')
+
+      - uses: actions/upload-artifact@v2
+        if: startsWith(matrix.os,'ubuntu')
+        with:
+          name: programma-exemplum-flutter.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
       - run: flutter build appbundle
         if: startsWith(matrix.os,'ubuntu')
 
+      - uses: actions/upload-artifact@v2
+        if: startsWith(matrix.os,'ubuntu')
+        with:
+          name: programma-exemplum-flutter.aab
+          path: build/app/outputs/bundle/release/app-release.aab
+
       - run: flutter build ios --release --no-codesign
         if: startsWith(matrix.os,'macos')
+
+      - uses: actions/upload-artifact@v2
+        if: startsWith(matrix.os,'macos')
+        with:
+          name: programma-exemplum-flutter.app
+          path: build/ios/iphoneos/Runner.app
+
 
   flutter-build-windows:
     name: Test on ${{ matrix.os }}
@@ -68,9 +92,15 @@ jobs:
       - run: flutter pub get
       - run: flutter test
 
+      # gambiarra to not re-create the project on beta channel just to test windows
+      - run: flutter create --platforms=windows --template app --project-name programma_exemplum_flutter --org ai.etica.hxl .
+        continue-on-error: true
+
       - run: flutter config --enable-windows-desktop
+        continue-on-error: true
 
       - run: flutter build windows
+        continue-on-error: true
 
   # TODO: windows
   # windows:
