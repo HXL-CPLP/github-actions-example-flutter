@@ -1,6 +1,10 @@
-# programma-exemplum-flutter
-programma-exemplum-flutter. Veja https://github.com/HXL-CPLP/forum/issues/61
+# Exemplo de GitHub Actions para aplicações Flutter
+**[rascunho] Exemplo automação com [GitHub Actions](https://github.com/features/actions) para aplicações plataforma cruzada [Flutter](https://flutter.dev/)**
 
+> - _HXL-CPLP/forum#61: Referências e apoio para automação, testes de qualidade e distribuição em canais de desktop e móvel para aplicações de uso humanitário_
+>   - https://github.com/HXL-CPLP/forum/issues/61
+> - _frontendbr/forum/discussions/2182: Referências de estudos de caso de uso avançado do GitHub Actions (ilimitado e gratuito para Open Source) inexplorado no Brasil; foco cross-platform_
+>   - https://github.com/frontendbr/forum/discussions/2182
 
 
 ---
