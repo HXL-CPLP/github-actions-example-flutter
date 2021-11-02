@@ -5,30 +5,28 @@
 [![Flutter Logo; Flutter and the related logo are trademarks of Google LLC. We are not endorsed by or affiliated with Google LLC.](readme-images/flutter-logo.png)](https://flutter.dev/)
 
 ## Entregáveis
-### Exemplo de GitHub Actions para aplicações Flutter
 
 - **[.github/workflows/](.github/workflows/)**
+  - Arquivos prontos para usar: **isso que você está procurando!**
 - `github.com/<usuario-ou-organizacao>/actions/`
+  - Log de ações (ultimos 90 dias), exemplo: <https://github.com/HXL-CPLP/github-actions-example-flutter/actions>
+- **Contexto adicional**:
+  - [diario-de-bordo.sh](diario-de-bordo.sh)
+    - Anotações internas (para quem mantém o repositório)
+  - `github.com/<usuario-ou-organizacao>/issues/1`
+    - Issue com anotações adicionais, exemplo: [HXL-CPLP/github-actions-example-flutter#1](https://github.com/HXL-CPLP/github-actions-example-flutter/issues/1)
 
-Os entreǵáveis principais são os arquivos YAML em
+Os entregáveis principais são os arquivos YAML em
 [.github/workflows/](.github/workflows/) que _idealmente_ deveriam estar
 documentados ao ponto de ser inspirar implementações realistas.
 
-**Aviso**: Este repositório também contém uma ou mais aplicações simples
-que permitem o mínimo para testar como as GitHub Actions estão integradas,
-mas não há intenção de manter dependências delas atualizadas.
+<!--
+- Linkar o SECURITY.md
+- TODO: criar um CONTRIBUTING
+  - https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors
+  - https://github.com/github/docs/blob/main/CONTRIBUTING.md
+-->
 
-#### Anotações adicionais
-
-- **[diario-de-bordo.sh](diario-de-bordo.sh)**
-- `github.com/<usuario-ou-organizacao>/issues/1`
-
-Questões não relacionadas ao GitHub actions, em especial anotações internas
-sobre como aplicação de exemplo foi obtida, estão em
-[diario-de-bordo.sh](diario-de-bordo.sh).
-
-Caso este projeto não seja uma bifurcação, o primeiro  pode ter mais
-informações.
 
 ## Sobre
 ### Contexto:

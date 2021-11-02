@@ -150,6 +150,10 @@ jobs:
     continue-on-error: false
 
     steps:
+      #### actions/checkout ____________________________________________________
+      # _[por-Latn] Clone o repositório para esta máquina de testes [por-Latn]_
+      - uses: actions/checkout@v2
+
       - run: "echo 'TODO https://github.com/anton-yurchenko/git-release/blob/main/docs/example.md'"
 
       # Download all artifacts to the current working directory

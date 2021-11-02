@@ -4,6 +4,9 @@
 - This is a test
 - Another test
 
+## [0.3.1] - 2020-11-02
+- SECURITY.md
+
 ## [0.3.0] - 2020-11-02
 - .github/workflows/README.md adicionado
 - 05-flutter-build-devel.yml renomeado (era 05-flutter-build.yml)
