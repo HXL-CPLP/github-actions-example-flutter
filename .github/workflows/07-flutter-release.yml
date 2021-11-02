@@ -129,9 +129,9 @@ jobs:
           UNRELEASED: "update"
         with:
           # programma-exemplum-flutter.app 168mb, too much
+          # INFO uploading asset: programma-exemplum-flutter.aab
           args: |
-            programma-exemplum-flutter.aab
-            rogramma-exemplum-flutter.apk
+            programma-exemplum-flutter.apk
 
   # TODO:
   # - avancado https://github.com/anton-yurchenko/git-release
