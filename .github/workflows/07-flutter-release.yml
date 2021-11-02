@@ -9,7 +9,8 @@ name: flutter-release
 on:
   push:
     tags:
-      - v[0-9]+.[0-9]+.[0-9]+
+      # - v[0-9]+.[0-9]+.[0-9]+
+      - "*"
 
 jobs:
   # flutter-quick-test #########################################################
@@ -162,7 +163,10 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
-      - name: Release
+      - name: Display structure of downloaded files
+        run: ls -lha
+
+      - name: "GitHub Release: update/publish lastest"
         uses: docker://antonyurchenko/git-release:latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -173,6 +177,13 @@ jobs:
           args: |
             programma-exemplum-flutter.apk
 
+      - name: "GitHub Release: publish specific release"
+        uses: docker://antonyurchenko/git-release:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: |
+            programma-exemplum-flutter.apk
   # TODO:
   # - avancado https://github.com/anton-yurchenko/git-release
   #   - "Unreleased" https://github.com/anton-yurchenko/git-release/issues/47
