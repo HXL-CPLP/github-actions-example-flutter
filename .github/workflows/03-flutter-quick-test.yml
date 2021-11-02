@@ -6,27 +6,34 @@
 name: flutter-quick-test
 
 on:
+  # _[por-Latn]
+  # Execute este fluxo de trabalho em qualquer evento push (sem restrição
+  # de branch) e pull requests.
+  # [por-Latn]_
+  pull_request:
+    # branches:
+    #   - main
   push:
-    # _[por-Latn] Execute este fluxo de trabalho em qualquer evento push [por-Latn]_
+    # branches:
+    #   - main
 
 jobs:
-
+  # flutter-quick-test #########################################################
   # _[por-Latn] Teste rápido: se é para falhar, falhe rápido! [por-Latn]_
   flutter-quick-test:
     name: flutter-quick-test
     runs-on: ubuntu-latest
     continue-on-error: false
     steps:
-
       #### actions/checkout ____________________________________________________
-      # _[por-Latn] Clone o repositório para esta máquine de testes [por-Latn]_
+      # _[por-Latn] Clone o repositório para esta máquina de testes [por-Latn]_
       - uses: actions/checkout@v2
 
       #### actions/setup-java __________________________________________________
       # _[por-Latn] Prepare dependências Java [por-Latn]_
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: "12.x"
 
       #### subosito/flutter-action _____________________________________________
       # @see https://github.com/marketplace/actions/flutter-action
@@ -34,10 +41,31 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           # flutter-version: '1.20.2'
-          channel: 'stable' # or: 'beta', 'dev' or 'master'
+          channel: "stable" # or: 'beta', 'dev' or 'master'
       - run: dart --version
       - run: flutter --version
       - run: flutter pub get
 
       # _[por-Latn] Execute testes do Flutter [por-Latn]_
       - run: flutter test
+
+  # flutter-quick-test-okay ####################################################
+  # _[por-Latn]
+  # O flutter-quick-test-okay é um exemplo de como um trabalho pode reusar o
+  # resultado de outro trabalho através da opção 'needs'
+  #
+  # IMPORTANTE: pelo menos nesta data, 2021-11-02, conforme
+  # https://github.community/t/workflow-run-completed-event-triggered-by-failed-workflow/128001
+  # não é possível usar dependências de arquivos diferentes. Isso explica porque
+  # o flutter-quick-test é copiado em demais arquivos.
+  # [por-Latn]_
+  flutter-quick-test-okay:
+    name: flutter-quick-test-okay
+    runs-on: ubuntu-latest
+    needs: 
+      - flutter-quick-test
+    steps:
+      - run: |
+          echo "flutter-quick-test-okay"
+
+# The workflow must contain at least one job with no dependencies.

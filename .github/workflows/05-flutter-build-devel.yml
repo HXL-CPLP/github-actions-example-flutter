@@ -16,23 +16,22 @@ on:
     #   - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
-
+  # flutter-quick-test #########################################################
   # _[por-Latn] Teste rápido: se é para falhar, falhe rápido! [por-Latn]_
   flutter-quick-test:
     name: flutter-quick-test
     runs-on: ubuntu-latest
     continue-on-error: false
     steps:
-
       #### actions/checkout ____________________________________________________
-      # _[por-Latn] Clone o repositório para esta máquine de testes [por-Latn]_
+      # _[por-Latn] Clone o repositório para esta máquina de testes [por-Latn]_
       - uses: actions/checkout@v2
 
       #### actions/setup-java __________________________________________________
       # _[por-Latn] Prepare dependências Java [por-Latn]_
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: "12.x"
 
       #### subosito/flutter-action _____________________________________________
       # @see https://github.com/marketplace/actions/flutter-action
@@ -40,7 +39,7 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           # flutter-version: '1.20.2'
-          channel: 'stable' # or: 'beta', 'dev' or 'master'
+          channel: "stable" # or: 'beta', 'dev' or 'master'
       - run: dart --version
       - run: flutter --version
       - run: flutter pub get
@@ -48,25 +47,24 @@ jobs:
       # _[por-Latn] Execute testes do Flutter [por-Latn]_
       - run: flutter test
 
-
   flutter-build-unixes:
-    name: Test on ${{ matrix.os }}
+    name: flutter-build-${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         # os: [ubuntu-latest, windows-latest, macos-latest]
         os: [ubuntu-latest, macos-latest]
-    needs: [ flutter-quick-test ]
+    needs: [flutter-quick-test]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
           # flutter-version: '1.20.2'
           # channel: 'beta'
-          channel: 'stable' # or: 'beta', 'dev' or 'master'
+          channel: "stable" # or: 'beta', 'dev' or 'master'
       - run: dart --version
       - run: flutter --version
       - run: flutter pub get
@@ -105,7 +103,6 @@ jobs:
           path: build/ios/iphoneos/Runner.app
           retention-days: 5 # 5 days retention (this is an huge folder)
 
-
   flutter-build-windows:
     name: Test on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
@@ -113,12 +110,12 @@ jobs:
       matrix:
         # os: [ubuntu-latest, windows-latest, macos-latest]
         os: [windows-latest]
-    needs: [ flutter-quick-test ]
+    needs: [flutter-quick-test]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: '12.x'
+          java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
           # 2021-10-25: channel: beta required for windows
@@ -142,5 +139,3 @@ jobs:
   # - avancado https://github.com/anton-yurchenko/git-release
   #   - "Unreleased" https://github.com/anton-yurchenko/git-release/issues/47
   # - sem changelog: https://github.com/svenstaro/upload-release-action
-
-  

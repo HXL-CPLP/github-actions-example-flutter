@@ -4,6 +4,10 @@
 - This is a test
 - Another test
 
+## [0.3.0] - 2020-11-02
+- .github/workflows/README.md adicionado
+- 05-flutter-build-devel.yml renomeado (era 05-flutter-build.yml)
+
 ## [0.2.0] - 2020-11-02
 - Exemplum A
 - Exemplum B
