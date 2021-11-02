@@ -5,7 +5,7 @@
 [![Flutter Logo; Flutter and the related logo are trademarks of Google LLC. We are not endorsed by or affiliated with Google LLC.](readme-images/flutter-logo.png)](https://flutter.dev/)
 
 ## Entregáveis
-### Exemplo de GitHub Actions com aplicações Electron
+### Exemplo de GitHub Actions para aplicações Flutter
 
 - **[.github/workflows/](.github/workflows/)**
 - `github.com/<usuario-ou-organizacao>/actions/`
@@ -36,6 +36,17 @@ informações.
   - https://github.com/HXL-CPLP/forum/issues/61
 - _frontendbr/forum/discussions/2182: Referências de estudos de caso de uso avançado do GitHub Actions (ilimitado e gratuito para Open Source) inexplorado no Brasil; foco cross-platform_
   - https://github.com/frontendbr/forum/discussions/2182
+
+---
+
+> _Domínio público significa que cada problema só precisa ser resolvido uma vez_
+> — [frase adaptada de @naval](https://twitter.com/naval/status/1444366754650656770)
+
+Embora domínio público facilite reuso com outras licenças, bem como
+reuso sem necessidade de citar fonte (o que é útil para inclusão em outros
+materiais educacionais, inclusive fins comerciais) o principal motivo para essa
+abordagem pela organização mantenedora atual (no caso o HXL-CPLP) é que
+licenciamento semelhante a domínio público (Unlicense, CC0, 0BSD) simplifica muito, **muito mesmo**, o reuso no meio humanitário.
 
 ## Licença
 

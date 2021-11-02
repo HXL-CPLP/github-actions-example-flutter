@@ -1,10 +1,8 @@
-# ARCHIVUM:        .github/workflows/07-flutter-release.yml
-# LICENTIAM:        Dominium publicum
-# SPDX-License-Identifier: Unlicense
-# DOCUMENTORUM:     Links:
-#                     - https://docs.github.com/pt/actions
-#                     - https://github.com/marketplace/actions/flutter-action
-#                     - https://github.com/anton-yurchenko/git-release
+# SPDX-License-Identifier: Unlicense OR 0BSD
+
+# - https://docs.github.com/pt/actions
+# - https://github.com/marketplace/actions/flutter-action
+# - https://github.com/anton-yurchenko/git-release
 
 name: flutter-release
 
