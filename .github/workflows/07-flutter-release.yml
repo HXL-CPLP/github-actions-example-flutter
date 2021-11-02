@@ -62,7 +62,9 @@ jobs:
       - run: dart --version
       - run: flutter --version
       - run: flutter pub get
-      - run: flutter test
+
+      # _[por-Latn] Execute testes do Flutter (vide flutter-quick-test) [por-Latn]_
+      # - run: flutter test
 
       - run: flutter build web
 
@@ -98,7 +100,9 @@ jobs:
       - run: dart --version
       - run: flutter --version
       - run: flutter pub get
-      - run: flutter test
+
+      # _[por-Latn] Execute testes do Flutter (vide flutter-quick-test) [por-Latn]_
+      # - run: flutter test
 
       - run: flutter build ios --release --no-codesign
         # if: startsWith(matrix.os,'macos')
@@ -126,7 +130,9 @@ jobs:
       - run: dart --version
       - run: flutter --version
       - run: flutter pub get
-      - run: flutter test
+
+      # _[por-Latn] Execute testes do Flutter (vide flutter-quick-test) [por-Latn]_
+      # - run: flutter test
 
       # gambiarra to not re-create the project on beta channel just to test windows
       - run: flutter create --platforms=windows --template app --project-name programma_exemplum_flutter --org ai.etica.hxl .
@@ -175,7 +181,7 @@ jobs:
           # programma-exemplum-flutter.app 168mb, too much
           # INFO uploading asset: programma-exemplum-flutter.aab
           args: |
-            programma-exemplum-flutter.apk
+            programma-exemplum-flutter.apk/app-release.apk
 
       - name: "GitHub Release: publish specific release"
         uses: docker://antonyurchenko/git-release:latest
@@ -183,7 +189,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: |
-            programma-exemplum-flutter.apk
+            programma-exemplum-flutter.apk/app-release.apk
   # TODO:
   # - avancado https://github.com/anton-yurchenko/git-release
   #   - "Unreleased" https://github.com/anton-yurchenko/git-release/issues/47
