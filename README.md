@@ -6,6 +6,10 @@
 
 ## Entregáveis
 
+Os entregáveis principais são os arquivos YAML em
+[.github/workflows/](.github/workflows/) que _idealmente_ deveriam estar
+documentados ao ponto de ser inspirar implementações realistas.
+
 - **[.github/workflows/](.github/workflows/)**
   - Arquivos prontos para usar: **isso que você está procurando!**
 - `github.com/<usuario-ou-organizacao>/actions/`
@@ -15,10 +19,6 @@
     - Anotações internas (para quem mantém o repositório)
   - `github.com/<usuario-ou-organizacao>/issues/1`
     - Issue com anotações adicionais, exemplo: [HXL-CPLP/github-actions-example-flutter#1](https://github.com/HXL-CPLP/github-actions-example-flutter/issues/1)
-
-Os entregáveis principais são os arquivos YAML em
-[.github/workflows/](.github/workflows/) que _idealmente_ deveriam estar
-documentados ao ponto de ser inspirar implementações realistas.
 
 <!--
 - Linkar o SECURITY.md

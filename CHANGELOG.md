@@ -1,8 +1,11 @@
 # Changelog
 
-## Unreleased
+## [Unreleased]
 - This is a test
 - Another test
+
+## [0.3.2] - 2020-11-02
+- CHANGELOG.md: changed `## Unreleased` to `## [Unreleased]`
 
 ## [0.3.1] - 2020-11-02
 - SECURITY.md
