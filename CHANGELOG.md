@@ -4,6 +4,9 @@
 - This is a test
 - Another test
 
+## [0.3.3] - 2020-11-02
+- More tests with anton-yurchenko/git-release to automate release
+
 ## [0.3.2] - 2020-11-02
 - CHANGELOG.md: changed `## Unreleased` to `## [Unreleased]`
 
